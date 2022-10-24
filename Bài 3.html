@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>
+<script>
+    let x = +prompt("Nhập x");
+    let array = [];
+    let sum = 0;
+    sumOfListPrime();
+
+    function checkSNT(number) {
+        if (number == 0 || number == 1) {
+            return false;
+        } else if (number > 1 && number < 4) {
+            return true;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    return false;
+                    break;
+                }
+            }
+            return true;
+        }
+    }
+
+    function sumOfListPrime() {
+        for (let dem = 0; dem < x; dem++) {
+            if (checkSNT(dem) === true) {
+                array.push(dem);
+                sum += dem;
+            }
+        }
+        document.getElementById("result").innerHTML = "Các số nguyên tố từ 0 đến " + x + " là: " + array + " có tổng là: " + sum
+    }
+
+</script>
